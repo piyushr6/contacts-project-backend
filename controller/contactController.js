@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler"); //no need to write try catch blocks everytime
+const Contact = require("../models/contactModel");
 
 //@desc Get all contacts
 //@route GET /api/contacts

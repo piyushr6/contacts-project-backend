@@ -19,6 +19,8 @@ app.use(express.json());
 
 // Mount routes
 app.use("/api/contacts", require("./routes/contactRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
+
 
 // Global error handler
 app.use(errorHandler);

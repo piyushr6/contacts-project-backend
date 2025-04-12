@@ -14,8 +14,9 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
+    "lsof": "^0.0.4",
     "mongodb": "^6.14.2",
-    "mongoose": "^8.12.1",
+    "mongoose": "^8.13.2",
     "nodemon": "^3.1.9"
   }
 }

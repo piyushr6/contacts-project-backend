@@ -1,19 +1,29 @@
-const express = require("express");
-const errorHandler = require("./middleware/errorHandler");
-const connectDb = require("./config/dbConnection");
+// Load environment variables from .env file
 const dotenv = require("dotenv").config();
 
-connectDb();
+// External modules
+const express = require("express");
+
+// Internal modules
+const errorHandler = require("./middleware/errorHandler");
+const connectDb = require("./config/dbConnection");
+
+// Connect to MongoDB
+connectDb(); // this connects using the URI in your .env file
 
 const app = express();
-
 const port = process.env.PORT || 5000;
 
-//app.use is invoked whenever we want to use a middleware
+// Built-in middleware to parse JSON
 app.use(express.json());
-app.use("/api/contacts", require("./routes/contactRoutes"));
-app.use(errorHandler)
 
+// Mount routes
+app.use("/api/contacts", require("./routes/contactRoutes"));
+
+// Global error handler
+app.use(errorHandler);
+
+// Start server
 app.listen(port, () => {
-   console.log(`server is listeninng on port ${port}`);
+   console.log(`✅ Server is listening on port ${port}`);
 });
